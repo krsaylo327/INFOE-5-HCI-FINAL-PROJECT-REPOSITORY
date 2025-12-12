@@ -16,7 +16,7 @@ A full-stack IT support ticket management system built with Laravel 12, Inertia.
 - **Faculty** - Create tickets and manage assigned tickets
 - **Admins** - Full access to all tickets and user management
 
-### Advanced Features
+### Features
 - Search and filter tickets by subject, description, creator, status, or priority
 - Smart sorting with high priority tickets first and closed tickets at the bottom
 - Real-time updates
