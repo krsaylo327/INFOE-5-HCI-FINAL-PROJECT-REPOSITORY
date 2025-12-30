@@ -37,9 +37,10 @@ const fetchTickets = async () => {
     try {
         loading.value = true;
         const response = await axios.get('/api/tickets');
-        tickets.value = response.data;
+        tickets.value = Array.isArray(response.data) ? response.data : [];
     } catch (error) {
         console.error('Error fetching tickets:', error);
+        tickets.value = [];
     } finally {
         loading.value = false;
     }

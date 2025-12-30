@@ -31,9 +31,10 @@ const fetchUsers = async () => {
         
         // Fetch all users from API
         const response = await axios.get('/api/admin/users');
-        users.value = response.data;
+        users.value = Array.isArray(response.data) ? response.data : [];
     } catch (error) {
         console.error('Error fetching users:', error);
+        users.value = [];
     } finally {
         loading.value = false;
     }
