@@ -1,0 +1,518 @@
+﻿@import 'tailwindcss';
+
+@import 'tw-animate-css';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --font-sans:
+        Instrument Sans, ui-sans-serif, system-ui, sans-serif,
+        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+        'Noto Color Emoji';
+
+    --radius-lg: var(--radius);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-sm: calc(var(--radius) - 4px);
+
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
+
+    --color-sidebar: var(--sidebar-background);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentColor);
+    }
+}
+
+@layer utilities {
+    body,
+    html {
+        --font-sans:
+            'Instrument Sans', ui-sans-serif, system-ui, sans-serif,
+            'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+            'Noto Color Emoji';
+    }
+}
+
+:root {
+    --background: hsl(220 23% 98%);
+    --foreground: hsl(224 71% 4%);
+    --card: hsl(0 0% 100%);
+    --card-foreground: hsl(224 71% 4%);
+    --popover: hsl(0 0% 100%);
+    --popover-foreground: hsl(224 71% 4%);
+    --primary: hsl(221 83% 53%);
+    --primary-foreground: hsl(210 40% 98%);
+    --secondary: hsl(222 25% 94%);
+    --secondary-foreground: hsl(222 47% 11%);
+    --muted: hsl(220 14% 96%);
+    --muted-foreground: hsl(215 16% 47%);
+    --accent: hsl(266 85% 58%);
+    --accent-foreground: hsl(210 40% 98%);
+    --destructive: hsl(0 72% 50%);
+    --destructive-foreground: hsl(0 0% 98%);
+    --border: hsl(220 13% 91%);
+    --input: hsl(216 13% 91%);
+    --ring: hsl(221 83% 53%);
+    --chart-1: hsl(221 83% 53%);
+    --chart-2: hsl(266 85% 58%);
+    --chart-3: hsl(174 62% 45%);
+    --chart-4: hsl(27 92% 61%);
+    --chart-5: hsl(358 72% 61%);
+    --radius: 0.75rem;
+    --shadow-soft: 0 12px 40px rgba(15, 23, 42, 0.08);
+    --shadow-strong: 0 16px 60px rgba(15, 23, 42, 0.12);
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-10: 2.5rem;
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+    --line-height-tight: 1.15;
+    --line-height-snug: 1.25;
+    --line-height-normal: 1.5;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --sidebar-background: hsl(220 23% 98%);
+    --sidebar-foreground: hsl(224 71% 4%);
+    --sidebar-primary: hsl(221 83% 53%);
+    --sidebar-primary-foreground: hsl(210 40% 98%);
+    --sidebar-accent: hsl(222 25% 94%);
+    --sidebar-accent-foreground: hsl(224 71% 4%);
+    --sidebar-border: hsl(220 13% 91%);
+    --sidebar-ring: hsl(221 83% 53%);
+    --sidebar: hsl(220 23% 98%);
+}
+
+.dark {
+    --background: hsl(230 20% 8%);
+    --foreground: hsl(210 40% 98%);
+    --card: hsl(230 20% 11%);
+    --card-foreground: hsl(210 40% 98%);
+    --popover: hsl(230 20% 12%);
+    --popover-foreground: hsl(210 40% 98%);
+    --primary: hsl(222 80% 66%);
+    --primary-foreground: hsl(0 0% 7%);
+    --secondary: hsl(226 17% 16%);
+    --secondary-foreground: hsl(210 40% 96%);
+    --muted: hsl(225 16% 20%);
+    --muted-foreground: hsl(215 20% 72%);
+    --accent: hsl(266 70% 70%);
+    --accent-foreground: hsl(233 20% 10%);
+    --destructive: hsl(0 72% 58%);
+    --destructive-foreground: hsl(210 40% 98%);
+    --border: hsl(226 12% 24%);
+    --input: hsl(226 12% 24%);
+    --ring: hsl(222 80% 66%);
+    --chart-1: hsl(222 80% 66%);
+    --chart-2: hsl(266 70% 70%);
+    --chart-3: hsl(174 62% 55%);
+    --chart-4: hsl(33 92% 66%);
+    --chart-5: hsl(358 72% 68%);
+    --sidebar-background: hsl(230 20% 8%);
+    --sidebar-foreground: hsl(210 40% 96%);
+    --sidebar-primary: hsl(222 80% 66%);
+    --sidebar-primary-foreground: hsl(210 40% 8%);
+    --sidebar-accent: hsl(226 17% 16%);
+    --sidebar-accent-foreground: hsl(210 40% 96%);
+    --sidebar-border: hsl(226 12% 24%);
+    --sidebar-ring: hsl(222 80% 66%);
+    --sidebar: hsl(230 20% 8%);
+}
+
+@layer base {
+    * {
+        @apply border-border outline-ring/50;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
+
+    h1 {
+        font-size: var(--font-size-4xl);
+        line-height: var(--line-height-tight);
+        font-weight: var(--font-weight-bold);
+        letter-spacing: -0.02em;
+    }
+
+    h2 {
+        font-size: var(--font-size-3xl);
+        line-height: var(--line-height-snug);
+        font-weight: var(--font-weight-semibold);
+        letter-spacing: -0.015em;
+    }
+
+    h3 {
+        font-size: var(--font-size-2xl);
+        line-height: var(--line-height-snug);
+        font-weight: var(--font-weight-semibold);
+    }
+
+    h4 {
+        font-size: var(--font-size-xl);
+        line-height: var(--line-height-normal);
+        font-weight: var(--font-weight-semibold);
+    }
+
+    p {
+        font-size: var(--font-size-base);
+        line-height: var(--line-height-normal);
+        color: var(--muted-foreground);
+    }
+
+    small {
+        font-size: var(--font-size-sm);
+        color: var(--muted-foreground);
+    }
+}
+
+/* -------------------------------------------------------
+   Design system: reusable primitives and components
+   ------------------------------------------------------- */
+@layer components {
+    /* Layout primitives */
+    .surface {
+        background: var(--card);
+        color: var(--foreground);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-soft);
+    }
+
+    .surface-muted {
+        background: var(--secondary);
+        color: var(--foreground);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+    }
+
+    /* Typography helpers */
+    .eyebrow {
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-weight: var(--font-weight-semibold);
+        color: var(--muted-foreground);
+        font-size: var(--font-size-xs);
+    }
+
+    .heading {
+        font-size: var(--font-size-2xl);
+        line-height: var(--line-height-snug);
+        font-weight: var(--font-weight-semibold);
+    }
+
+    .subheading {
+        font-size: var(--font-size-lg);
+        color: var(--muted-foreground);
+        line-height: var(--line-height-normal);
+    }
+
+    /* Buttons */
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-2);
+        padding: calc(var(--space-3) + 2px) var(--space-5);
+        border-radius: var(--radius-md);
+        font-weight: var(--font-weight-semibold);
+        font-size: var(--font-size-sm);
+        transition:
+            transform 120ms ease,
+            box-shadow 120ms ease,
+            background-color 120ms ease,
+            color 120ms ease;
+        border: 1px solid transparent;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .btn:focus-visible {
+        outline: 2px solid var(--ring);
+        outline-offset: 2px;
+        box-shadow: 0 0 0 4px color-mix(in srgb, var(--ring) 20%, transparent);
+    }
+
+    .btn:active {
+        transform: translateY(1px);
+    }
+
+    .btn-primary {
+        background: var(--primary);
+        color: var(--primary-foreground);
+        box-shadow: var(--shadow-soft);
+    }
+
+    .btn-primary:hover {
+        background: color-mix(in srgb, var(--primary) 85%, white);
+    }
+
+    .btn-secondary {
+        background: var(--secondary);
+        color: var(--secondary-foreground);
+        border-color: var(--border);
+    }
+
+    .btn-ghost {
+        background: transparent;
+        color: var(--foreground);
+        border-color: transparent;
+    }
+
+    .btn-ghost:hover {
+        background: var(--secondary);
+        color: var(--secondary-foreground);
+    }
+
+    .btn-danger {
+        background: var(--destructive);
+        color: var(--destructive-foreground);
+        box-shadow: var(--shadow-soft);
+    }
+
+    .btn-danger:hover {
+        background: color-mix(in srgb, var(--destructive) 85%, white);
+    }
+
+    /* Cards */
+    .card {
+        background: var(--card);
+        color: var(--foreground);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-soft);
+        padding: var(--space-6);
+    }
+
+    .card-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-3);
+        margin-bottom: var(--space-4);
+    }
+
+    .card-meta {
+        display: flex;
+        align-items: center;
+        gap: var(--space-3);
+        color: var(--muted-foreground);
+        font-size: var(--font-size-sm);
+    }
+
+    /* Form system */
+    .form-grid {
+        display: grid;
+        gap: var(--space-4);
+    }
+
+    .form-row {
+        display: grid;
+        gap: var(--space-2);
+    }
+
+    .form-label {
+        font-weight: var(--font-weight-semibold);
+        color: var(--foreground);
+        font-size: var(--font-size-sm);
+    }
+
+    .form-hint {
+        color: var(--muted-foreground);
+        font-size: var(--font-size-sm);
+    }
+
+    .form-error {
+        color: var(--destructive);
+        font-size: var(--font-size-sm);
+    }
+
+    .control {
+        width: 100%;
+        padding: var(--space-3) var(--space-4);
+        border: 1px solid var(--input);
+        border-radius: var(--radius-md);
+        background: var(--card);
+        color: var(--foreground);
+        font-size: var(--font-size-base);
+        transition:
+            border-color 140ms ease,
+            box-shadow 140ms ease,
+            background-color 140ms ease;
+    }
+
+    .control::placeholder {
+        color: var(--muted-foreground);
+    }
+
+    .control:hover {
+        border-color: color-mix(in srgb, var(--ring) 50%, var(--input));
+    }
+
+    .control:focus {
+        border-color: var(--ring);
+        box-shadow: 0 0 0 4px color-mix(in srgb, var(--ring) 20%, transparent);
+        outline: none;
+    }
+
+    .control[aria-invalid='true'],
+    .control:invalid {
+        border-color: var(--destructive);
+        background: color-mix(in srgb, var(--destructive) 8%, var(--card));
+    }
+
+    .control[disabled] {
+        cursor: not-allowed;
+        opacity: 0.65;
+    }
+
+    .input-group {
+        display: flex;
+        align-items: center;
+        border: 1px solid var(--input);
+        border-radius: var(--radius-md);
+        background: var(--card);
+        overflow: hidden;
+    }
+
+    .input-prefix,
+    .input-suffix {
+        padding: var(--space-3) var(--space-4);
+        color: var(--muted-foreground);
+        font-size: var(--font-size-sm);
+        border-right: 1px solid var(--border);
+    }
+
+    .input-suffix {
+        border-right: 0;
+        border-left: 1px solid var(--border);
+    }
+
+    .input-group .control {
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .input-group:focus-within {
+        box-shadow: 0 0 0 4px color-mix(in srgb, var(--ring) 20%, transparent);
+        border-color: var(--ring);
+    }
+
+    /* Badges */
+    .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-2);
+        padding: var(--space-2) var(--space-3);
+        border-radius: 999px;
+        font-weight: var(--font-weight-semibold);
+        font-size: var(--font-size-xs);
+        background: var(--secondary);
+        color: var(--secondary-foreground);
+        border: 1px solid var(--border);
+    }
+
+    .badge-primary {
+        background: color-mix(in srgb, var(--primary) 18%, var(--secondary));
+        color: var(--primary-foreground);
+        border-color: color-mix(in srgb, var(--primary) 40%, var(--border));
+    }
+
+    .badge-danger {
+        background: color-mix(in srgb, var(--destructive) 16%, var(--secondary));
+        color: var(--destructive-foreground);
+        border-color: color-mix(in srgb, var(--destructive) 40%, var(--border));
+    }
+
+    /* Utility shells */
+    .toolbar {
+        display: flex;
+        align-items: center;
+        gap: var(--space-3);
+        justify-content: space-between;
+        padding: var(--space-4) var(--space-5);
+        background: var(--secondary);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+    }
+
+    .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-2);
+        padding: var(--space-2) var(--space-4);
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: var(--muted);
+        color: var(--muted-foreground);
+    }
+}
