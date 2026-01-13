@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MOTI | Register</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/moti-glass-theme.css">
+</head>
+
+<body class="page-register">
+<div class="page-wrapper">
+
+  <!-- LOGO -->
+  <img src="images/LOGO.png" class="logo-big">
+
+  <!-- GLASS CARD -->
+  <div class="glass-card">
+    <h2>Create Account</h2>
+
+    <input
+      id="regUsername"
+      type="text"
+      placeholder="Username"
+      autocomplete="username"
+      required
+    >
+
+    <input
+      id="regPassword"
+      type="password"
+      placeholder="Password"
+      autocomplete="new-password"
+      required
+    >
+
+    <button type="button" onclick="register()">Register</button>
+
+    <div class="link">
+      <a href="index.html">Back to login</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- REAL AUTH SCRIPT -->
+<script src="js/auth.js"></script>
+</body>
+</html>

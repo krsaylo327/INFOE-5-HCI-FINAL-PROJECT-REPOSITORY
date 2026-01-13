@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/moti-glass-theme.css">
+  <title>MOTI</title>
+</head>
+<body>
+
+<!-- BACKGROUND WRAPPER -->
+<div class="page">
+
+  <div class="logo-wrapper">
+  <img src="images/LOGO.png"alt="MOTI Logo" class="logo">
+
+</div>
+
+  <!-- GLASS CONTAINER -->
+  <div class="glass">
+
+    <!-- ===== NOTES ===== -->
+    <h3>📝 Notes</h3>
+    <input id="noteInput" placeholder="Write a note...">
+    <button onclick="addNote()">Add Note</button>
+    <ul id="notesList"></ul>
+
+    <hr>
+
+    <!-- ===== HABITS ===== -->
+    <h3>🔥 Habits</h3>
+    <input id="habitInput" placeholder="New habit...">
+    <button onclick="addHabit()">Add Habit</button>
+    <ul id="habitsList"></ul>
+
+    <hr>
+
+    <!-- ===== REMINDERS ===== -->
+    <h3>⏰ Reminders</h3>
+    <input id="reminderText" placeholder="Reminder text">
+    <input type="datetime-local" id="reminderTime">
+    <button onclick="addReminder()">Add Reminder</button>
+    <ul id="remindersList"></ul>
+
+    <hr>
+
+    <!-- ===== ANALYTICS ===== -->
+    <h3>📊 Analytics</h3>
+    <div id="analytics"></div>
+
+    <hr>
+
+    <!-- LOGOUT -->
+    <button class="logout"
+      onclick="localStorage.clear();location.href='index.html'">
+      Logout
+    </button>
+
+  </div>
+</div>
+
+<script src="js/dashboard.js"></script>
+</body>
+</html>
