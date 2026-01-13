@@ -43,3 +43,11 @@ Common Fix: If you get a "Connection Error" Check the file named db_connect.php 
 PHP
 
 $servername = "localhost"; $username = "root"; $password = ""; // Leave blank for XAMPP $dbname = "if0_40312270_db_userdata";
+
+
+
+Members
+Buarao-Front End & UI/UX Developer
+Guilingen-Project Maneger
+Boston-data gathering
+Zamora-data gathering
