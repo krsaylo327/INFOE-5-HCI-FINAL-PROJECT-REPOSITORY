@@ -1,53 +1,57 @@
-Here is your detailed guide to getting the Student Wellness Hub running on your machine.
+# Student Wellness Hub
 
-1. Launch XAMPP Open the XAMPP Control Panel.
+A comprehensive web application for student mental health assessments and counseling appointment management.
 
-Click Start for Apache and MySQL.
+## Installation
 
-2. Create the Database in phpMyAdmin The name must match exactly for the project to work:
+1. Clone or download this repository to your XAMPP htdocs directory
+2. Import the database schema from `database.sql` 
+3. Access the application through your browser: `http://localhost/if0_40312270_db_userdata/`
 
-Go to http://localhost/phpmyadmin/.
+## Default Credentials
 
-Click the "New" tab in the top left corner.
+- **Admin/Counselor**:
+  - Username: admin2@gmail.com
+  - Password: Admin123
 
-Under Database name, type: if0_40312270_db_userdata
+## System Requirements
 
-Click Create.
+- PHP 7.2 or higher
+- MySQL 5.7 or higher
+- Apache web server
 
-3. Import Your Data On the left-hand list, click on the database you just created (if0_40312270_db_userdata).
+## Database Setup Instructions
 
-Click the "Import" tab at the top.
+### Database Import
+1. Open phpMyAdmin (http://localhost/phpmyadmin)
+2. Create a new database named `if0_40312270_db_userdata`
+3. Select the newly created database
+4. Click on the "Import" tab
+5. Choose the `database.sql` file from the project directory
+6. Click "Go" to import the database structure and default admin account
 
-Click Choose File and select your database.sql file (located inside your group_4-Buarao-Guilingen-Boston-Zamora folder).
+### Administrator/Counselor:
+- Username: admin2@gmail.com
+- Password: Admin123
+- Register code for admin: SWHub2025
 
-Scroll to the bottom and click Import (or Go).
+## Technical Information
+- PHP 7.2+ required
+- MySQL/MariaDB database
+- Bootstrap 4.5 front-end framework
+- Font Awesome 5 icons
 
-You should see a green success message saying "Import has been successfully finished."
+## Project Members
+- Name	Role
+- Buarao	Front End & UI/UX Developer
+- Guilingen	Project Manager
+- Boston	Data Gathering
+- Zamora	Data Gathering
 
-4. Verify Your Folder Path Ensure your files are placed correctly so the URL works. Your path should look like this: C:\xampp\htdocs\group_4-Buarao-Guilingen-Boston-Zamora\index.php
+## 📌 Notes
 
-5. Open Your Project Now, open your web browser and go to:
+Ensure Apache and MySQL are running before accessing the system.
 
-http://localhost/group_4-Buarao-Guilingen-Boston-Zamora/
+Use the correct database name to avoid connection issues.
 
-6. Log In Use the default credentials from your project info:
-
-Admin/Counselor Email: admin2@gmail.com
-
-Password: Admin123
-
-Register code for admin: SWHub2025
-
-Common Fix: If you get a "Connection Error" Check the file named db_connect.php or config.php in your folder. Make sure it looks like this:
-
-PHP
-
-$servername = "localhost"; $username = "root"; $password = ""; // Leave blank for XAMPP $dbname = "if0_40312270_db_userdata";
-
-
-
-Members
-Buarao-Front End & UI/UX Developer
-Guilingen-Project Maneger
-Boston-data gathering
-Zamora-data gathering
+This project is intended for academic and educational purposes.
