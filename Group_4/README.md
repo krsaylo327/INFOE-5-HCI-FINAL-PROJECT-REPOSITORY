@@ -40,3 +40,19 @@ A comprehensive web application for student mental health assessments and counse
 - MySQL/MariaDB database
 - Bootstrap 4.5 front-end framework
 - Font Awesome 5 icons
+
+## Project Members
+- Name	Role
+- Buarao	Front End & UI/UX Developer
+- Guilingen	Project Manager
+- Boston	Data Gathering
+- Zamora	Data Gathering
+
+## 📌 Notes
+
+Ensure Apache and MySQL are running before accessing the system.
+
+Use the correct database name to avoid connection issues.
+
+This project is intended for academic and educational purposes.
+
