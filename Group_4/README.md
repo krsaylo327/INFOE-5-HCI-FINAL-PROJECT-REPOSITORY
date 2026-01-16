@@ -43,10 +43,11 @@ A comprehensive web application for student mental health assessments and counse
 
 ## Project Members
 - Name	Role
-- Buarao	Front End & UI/UX Developer
-- Guilingen	Project Manager
-- Boston	Data Gathering
-- Zamora	Data Gathering
+- Buarao -	Front End & UI/UX Developer
+- Guilingen -	Project Manager
+- Boston -	Data Gathering
+- Zamora -	Data Gathering
+- Castillo - Data Gathering
 
 ## 📌 Notes
 
@@ -55,4 +56,5 @@ Ensure Apache and MySQL are running before accessing the system.
 Use the correct database name to avoid connection issues.
 
 This project is intended for academic and educational purposes.
+
 
